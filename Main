@@ -1,0 +1,49 @@
+public class ProjectSasuke extends JavaPlugin {
+	
+	public static ProjectSasuke plugin;
+	public static BufferedImage byakuganImage;
+	public static BufferedImage hakkeImage;
+	
+	@Override
+	public void onEnable() {
+		plugin = this;
+		
+		ProjectSasuke.plugin.getLogger().info("Creating clans");
+		ProjectSasuke.plugin.getLogger().info("Initiating Methods");
+		
+		ProjectSasuke.plugin.getLogger().info("Registering Events");
+		
+		ProjectSasuke.plugin.getLogger().info("Initiating Database Manager");
+        
+        
+        ProjectSasuke.plugin.getLogger().info("Registering Abilities");
+        
+        ProjectSasuke.plugin.getLogger().info("Loading Images From Web");
+        loadImages();
+        
+        ProjectSasuke.plugin.getLogger().info("Jutsus are now running");
+        
+        ProjectSasuke.plugin.getLogger().info(ChatColor.GREEN + "ProjectSasuke has successfully loaded.");
+        
+    }
+	
+	public void loadImages() {
+		byakuganImage = getByakuganImage("random link here");
+		hakkeImage = getByakuganImage("other random link here");
+	}
+    
+    
+    public static BufferedImage getImage(String link) {
+		BufferedImage image = null;
+		try {
+		    URL imageUrl = new URL(link);
+		    InputStream in = imageUrl.openStream();
+		    image = ImageIO.read(in);
+		    in.close();
+		}
+		catch (IOException ioe) {
+		    //log the error
+			ioe.printStackTrace();
+		}
+		return image;
+	}
