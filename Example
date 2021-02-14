@@ -1,0 +1,8 @@
+ImageParticles particles =new ImageParticles(ProjectSasuke.byakuganImage,10);
+	    particles.setDisplayRatio(0.01);
+	    particle = particles.getParticles(Methods.getRightSide(player.getLocation(), 3), 0, player.getLocation().getYaw());
+	    for(Location location : particle.keySet()) {
+	    	Color color = particle.get(location);
+	    	DustOptions dustOptions = new DustOptions(color, 1);
+	    	location.getWorld().spawnParticle(Particle.REDSTONE,location,1,dustOptions);
+	    }
